@@ -1,4 +1,15 @@
-<script>
+<script lang="ts">
+	import Badge from "$lib/components/ui/badge/badge.svelte";
+	import * as Table from "$lib/components/ui/table";
+	import GitHub from "$lib/services/GithubService";
+	
+	let repos: any[] = []
+
+	async function loadRepos() {
+		repos = await GitHub.getRepos()
+	}
+
+	loadRepos()
 </script>
 
 <svelte:head>
@@ -6,50 +17,34 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<div class="container mt-6">
-		Hellooooo
-
-		<p class="h-full">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque sint ducimus cumque asperiores adipisci nemo. Officia ea similique dolore nemo accusantium beatae est perferendis. Soluta illum quasi perspiciatis accusantium. Molestiae.
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, provident vel tenetur eos aliquid fuga, perferendis, voluptatem illum iusto quasi fugit deserunt repellat nesciunt maxime quae? Repudiandae ab doloremque sapiente!
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui nesciunt doloribus vel odit. Doloremque facere provident libero nihil nulla placeat suscipit delectus corrupti est, magni, at quidem, debitis autem aperiam?
-			
-		</p>
-		<p class="h-full">
-			asdasdasda
-		</p>
-	</div>
+<section class="container mt-10">
+	<h2 class="text-2xl font-bold mb-5">Repos</h2>
+	<Table.Root>
+		<Table.Header>
+			<Table.Row>
+				<Table.Head>Name</Table.Head>
+				<Table.Head>Description</Table.Head>
+				<Table.Head>Language</Table.Head>
+				<Table.Head>Owner</Table.Head>
+				<Table.Head>Privacy</Table.Head>
+				<Table.Head class="text-right">Created at</Table.Head>
+			</Table.Row>
+		</Table.Header>
+		<Table.Body>
+			{#each repos as repo, i (i)}
+				<Table.Row>
+					<Table.Cell class="font-medium">{repo.name}</Table.Cell>
+					<Table.Cell>{repo.description ?? '-'}</Table.Cell>
+					<Table.Cell>{repo.language ?? '-'}</Table.Cell>
+					<Table.Cell>{repo.owner}</Table.Cell>
+					<Table.Cell>
+						{#if repo.isPrivate}
+							<Badge class="ml-2">Private</Badge>
+						{/if}
+					</Table.Cell>
+					<Table.Cell class="text-right">{repo.createdAt}</Table.Cell>
+				</Table.Row>
+			{/each}
+		</Table.Body>
+	</Table.Root>
 </section>
